@@ -3,7 +3,7 @@ const Usuario = require("../model/usuario");
 
 // Obtener todos los objetos
 const getUsuario = async (req, res) => {
-  Todo.find((err, usuario) => {
+  Usuario.find((err, usuario) => {
     if (err) {
       res.send(err);
     }
