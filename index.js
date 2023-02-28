@@ -4,6 +4,7 @@ const router = require("./router");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const rateLimit = require("express-rate-limit");
 
 // variables de entorno
 dotenv.config();
@@ -37,4 +38,11 @@ app.use(router);
 
 app.listen(PORT, async () => {
   console.log(`server up on port ${PORT}`);
+});
+
+
+const accountLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hora
+  max: 6, // limita cada IP a 6 peticiones por el tiempo definido con "windowMs"
+  message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
