@@ -50,16 +50,16 @@ const accountLimiter = rateLimit({
   message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
 
- https.createServer({
- cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
- key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
- },app).listen(PUERTO, function(){
- console.log('Servidor https corriendo en el puerto 443');
-})
-  app.get('/', function(req, res){
-  res.send('Hola, estas en la pagina inicial');
-  console.log('Se recibio una petición get a través de https');
- });
+//  https.createServer({
+//  cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
+//  key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
+//  },app).listen(PUERTO, function(){
+//  console.log('Servidor https corriendo en el puerto 443');
+// })
+//   app.get('/', function(req, res){
+//   res.send('Hola, estas en la pagina inicial');
+//   console.log('Se recibio una petición get a través de https');
+//  });
 
 
 
