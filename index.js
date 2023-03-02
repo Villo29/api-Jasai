@@ -62,18 +62,18 @@ const accountLimiter = rateLimit({
 
 
 
-app.post('/login', (req, res) => {
-  const Correo = req.body.Correo;
-  const Contraseña = req.body.Contraseña;
-  if (Correo === 'user@example.com' && Contraseña === 'Contraseña') {
-    // Si las credenciales son válidas, envía una respuesta exitosa al cliente
-    res.status(200).json({ message: 'Inicio de sesión exitoso' });
-  } else {
-    // Si las credenciales son inválidas, envía una respuesta de error al cliente
-    res.status(401).json({ message: 'Credenciales inválidas' });
-  }
-});
+// app.post('/login', (req, res) => {
+//   const Correo = req.body.Correo;
+//   const Contraseña = req.body.Contraseña;
+//   if (Correo === 'user@example.com' && Contraseña === 'Contraseña') {
+//     // Si las credenciales son válidas, envía una respuesta exitosa al cliente
+//     res.status(200).json({ message: 'Inicio de sesión exitoso' });
+//   } else {
+//     // Si las credenciales son inválidas, envía una respuesta de error al cliente
+//     res.status(401).json({ message: 'Credenciales inválidas' });
+//   }
+// });
 
-app.listen(9000, () => {
-  console.log('La aplicación está escuchando en el puerto 3000.');
-});
+// app.listen(9000, () => {
+//   console.log('La aplicación está escuchando en el puerto 3000.');
+// });
