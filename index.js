@@ -7,10 +7,10 @@ const dotenv = require("dotenv");
 const rateLimit = require("express-rate-limit");
 
 
-const fs = require('fs');
-const https = require('https');
+// const fs = require('fs');
+// const https = require('https');
 
-const PUERTO = 443;
+// const PUERTO = 443;
 
 // variables de entorno
 dotenv.config();
@@ -52,14 +52,14 @@ const accountLimiter = rateLimit({
   message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
 
-https.createServer({
-cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
-key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
-},app).listen(PUERTO, function(){
-console.log('Servidor https corriendo en el puerto 443');
-});
+// https.createServer({
+// cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
+// key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
+// },app).listen(PUERTO, function(){
+// console.log('Servidor https corriendo en el puerto 443');
+// });
 
-app.get('/', function(req, res){
-res.send('Hola, estas en la pagina inicial');
-console.log('Se recibio una petición get a través de https');
-});
+// app.get('/', function(req, res){
+// res.send('Hola, estas en la pagina inicial');
+// console.log('Se recibio una petición get a través de https');
+// });
