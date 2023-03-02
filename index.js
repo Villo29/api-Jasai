@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const rateLimit = require("express-rate-limit");
-
+var fs = require('fs');
+var https = require('https');
 
 
 // variables de entorno
