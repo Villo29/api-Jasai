@@ -16,7 +16,7 @@ const rateLimit = require("express-rate-limit");
 dotenv.config();
 
 // Puerto 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 const app = express();
 
 // Libreria para mongodb - usa URL que debe existir en .env
@@ -63,3 +63,21 @@ const accountLimiter = rateLimit({
 // res.send('Hola, estas en la pagina inicial');
 // console.log('Se recibio una petición get a través de https');
 // });
+
+
+
+app.post('/login', (req, res) => {
+  const Correo = req.body.Correo;
+  const Contraseña = req.body.Contraseña;
+  if (Correo === 'user@example.com' && Contraseña === 'Contraseña') {
+    // Si las credenciales son válidas, envía una respuesta exitosa al cliente
+    res.status(200).json({ message: 'Inicio de sesión exitoso' });
+  } else {
+    // Si las credenciales son inválidas, envía una respuesta de error al cliente
+    res.status(401).json({ message: 'Credenciales inválidas' });
+  }
+});
+
+app.listen(9000, () => {
+  console.log('La aplicación está escuchando en el puerto 3000.');
+});
