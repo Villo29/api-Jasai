@@ -12,7 +12,7 @@ const rateLimit = require("express-rate-limit");
 dotenv.config();
 
 // Puerto 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 // Libreria para mongodb - usa URL que debe existir en .env
