@@ -53,8 +53,8 @@ const accountLimiter = rateLimit({
 });
 
 https.createServer({
-cert: fs.readFileSync('/etc/letsencrypt/live/jasaiart-api.iothings.com.mx/fullchain.pem'),
-key: fs.readFileSync(' /etc/letsencrypt/live/jasaiart-api.iothings.com.mx/privkey.pem')
+cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
+key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
 },app).listen(PUERTO, function(){
 console.log('Servidor https corriendo en el puerto 443');
 });
