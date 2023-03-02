@@ -50,31 +50,14 @@ const accountLimiter = rateLimit({
   message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
 
-//  https.createServer({
-//  cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
-//  key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
-//  },app).listen(PUERTO, function(){
-//  console.log('Servidor https corriendo en el puerto 443');
-// })
-//   app.get('/', function(req, res){
-//   res.send('Hola, estas en la pagina inicial');
-//   console.log('Se recibio una petición get a través de https');
-//  });
+ https.createServer({
+ cert: fs.readFileSync('/etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/fullchain.pem'),
+ key: fs.readFileSync(' /etc/letsencrypt/archive/jasaiart-api.iothings.com.mx/privkey.pem')
+ },app).listen(PUERTO, function(){
+ console.log('Servidor https corriendo en el puerto 443');
+})
+  app.get('/', function(req, res){
+  res.send('Hola, estas en la pagina inicial');
+  console.log('Se recibio una petición get a través de https');
+ });
 
-
-
-// app.post('/login', (req, res) => {
-//   const Correo = req.body.Correo;
-//   const Contraseña = req.body.Contraseña;
-//   if (Correo === 'user@example.com' && Contraseña === 'Contraseña') {
-//     // Si las credenciales son válidas, envía una respuesta exitosa al cliente
-//     res.status(200).json({ message: 'Inicio de sesión exitoso' });
-//   } else {
-//     // Si las credenciales son inválidas, envía una respuesta de error al cliente
-//     res.status(401).json({ message: 'Credenciales inválidas' });
-//   }
-// });
-
-// app.listen(9000, () => {
-//   console.log('La aplicación está escuchando en el puerto 3000.');
-// });
