@@ -7,10 +7,6 @@ const dotenv = require("dotenv");
 const rateLimit = require("express-rate-limit");
 
 
-// const fs = require('fs');
-// const https = require('https');
-
-// const PUERTO = 443;
 
 // variables de entorno
 dotenv.config();
