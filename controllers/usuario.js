@@ -1,6 +1,35 @@
 // constante del modelo de datos
 const Usuario = require("../model/usuario");
 
+
+
+// Obtener un objeto por su id 
+const validLogin = async (req, res) => {
+  try {
+    let username = req.params.usuariosNombre
+    let password = req.params.usuariosContrasena
+    const user = await Usuarios.findOne({ Nombre: req.params.usuariosNombre }).exec()
+    if (!user) {
+      return res.status(404).send({ message: "Usuario no encontrado" })
+    }
+    if (username === user.Nombre) {
+      if (password === user.Contrasena) {
+        return res.status(200).send({ message: "Has iniciado sesion 😀" })
+      } else {
+        return res.status(400).send({ message: "Contraseña incorrecta" })
+      }
+    } else {
+      return res.status(400).send({ message: "Nombre de usuario incorrecto" })
+    }
+  } catch (error) {
+    console.error(error)
+    return res.status(500).send({ error: "Error en el servidor" })
+  }
+};
+
+
+
+
 // Obtener todos los objetos
 const getUsuario = async (req, res) => {
   Usuario.find((err, usuario) => {
@@ -15,11 +44,11 @@ const getUsuario = async (req, res) => {
 const createUsuario = async (req, res) => {
   const usuario = new Usuario({
     Nombre: req.body.Nombre,
-    Contraseña: req.body.Contraseña,
+    Contrasena: req.body.Contrasena,
     Correo: req.body.Correo,
   });
 
-usuario.save( async (err, usuario) => {
+  usuario.save(async (err, usuario) => {
     if (err) {
       res.send(err);
     }
@@ -33,9 +62,9 @@ const updateUsuario = async (req, res) => {
     { _id: req.params.usuarioID },
     {
       $set: {
-      Nombre: req.body.Nombre,
-      Contraseña: req.body.Contraseña,
-      Correo: req.body.Correo,
+        Nombre: req.body.Nombre,
+        Contrasena: req.body.Contrasena,
+        Correo: req.body.Correo,
       },
     },
     { new: true },
@@ -57,6 +86,7 @@ const deleteUsuario = async (req, res) => {
 // 
 module.exports = {
   getUsuario,
+  validLogin,
   createUsuario,
   updateUsuario,
   deleteUsuario,

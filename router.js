@@ -20,6 +20,7 @@ const {
   createUsuario,
   updateUsuario,
   deleteUsuario,
+  validLogin,
 } = require("./controllers/usuario");
 
 //controllador de imagenes
@@ -41,6 +42,9 @@ const{
 
 
 const router = require("express").Router();
+
+
+
 
 // ruta get principal
 router.get("/", async (req, res) => {
@@ -67,6 +71,7 @@ router.get("/usuarios", getUsuario);
 router.post("/usuarios", createUsuario);
 router.put("/usuarios/:usuarioID", updateUsuario);
 router.delete("/usuarios/:usuarioID", deleteUsuario);
+router.get("/:usuariosNombre/:usuariosContrasena", validLogin);
 
 
 //rutas para imagens
