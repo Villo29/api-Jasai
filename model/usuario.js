@@ -15,4 +15,4 @@ Correo: {
     },
 });
 // se manda a llamar la coleccion usuario
-module.exports = mongoose.model("usuarios", TodoSchema);
+module.exports = mongoose.model("usuario", TodoSchema);
