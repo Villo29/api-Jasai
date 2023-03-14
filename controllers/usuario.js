@@ -12,11 +12,11 @@ const validLogin= async (req, res) => {
     if (!user) {
       return res.status(404).send({ message: "Usuario no encontrado" })
     } 
-    if (username === usuario.Nombre) {
+    if (username === user.Nombre) {
       console.log("paso if user")
-      if(password === usuario.Contrasena){
+      if(password === user.Contrasena){
         console.log('paso if passw')
-        datos.push(usuario._id, usuario.admin, usuario.Nombre)
+        datos.push(user._id,user.Nombre)
         console.log(username, password, datos)
         return res.status(200).json({ datos })
       } else {
