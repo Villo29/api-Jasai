@@ -14,7 +14,7 @@ const validLogin = async (req, res) => {
     }
     if (username === user.Nombre) {
       if (password === user.Contrasena) {
-        return res.status(200).send({ message: "Has iniciado sesion 😀" })
+        return res.status(200).send({ message: "Has iniciado sesion " })
       } else {
         return res.status(400).send({ message: "Contraseña incorrecta" })
       }
