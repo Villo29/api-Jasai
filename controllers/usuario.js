@@ -3,18 +3,22 @@ const Usuario = require("../model/usuario");
 
 
 
-// Obtener un objeto por su id 
-const validLogin = async (req, res) => {
+const validLogin= async (req, res) => {
   try {
-    let username = req.params.usuarioNombre
-    let password = req.params.usuarioContrasena
-    const user = await Usuario.findOne({ Nombre: req.params.Nombre }).exec()
+    let username = req.params.userNOMBREDEUSUARIO
+    let password = req.params.userPASSWORD
+    let datos = []
+    const user = await User.findOne({nombreDeUsuario: req.params.userNOMBREDEUSUARIO}).exec()
     if (!user) {
       return res.status(404).send({ message: "Usuario no encontrado" })
-    }
-    if (username === user.Nombre) {
-      if (password === user.Contrasena) {
-        return res.status(200).send({ message: "Has iniciado sesion " })
+    } 
+    if (username === user.nombreDeUsuario) {
+      console.log("paso if user")
+      if(password === user.password){
+        console.log('paso if passw')
+        datos.push(user._id, user.admin, user.nombreDeUsuario)
+        console.log(username, password, datos)
+        return res.status(200).json({ datos })
       } else {
         return res.status(400).send({ message: "Contraseña incorrecta" })
       }
@@ -25,7 +29,7 @@ const validLogin = async (req, res) => {
     console.error(error)
     return res.status(500).send({ error: "Error en el servidor" })
   }
-};
+}; 
 
 
 
