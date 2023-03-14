@@ -5,18 +5,18 @@ const Usuario = require("../model/usuario");
 
 const validLogin= async (req, res) => {
   try {
-    let username = req.params.userNOMBREDEUSUARIO
-    let password = req.params.userPASSWORD
+    let username = req.params.UsuarioNOMBRE
+    let password = req.params.UsuarioCONTRASENA
     let datos = []
-    const user = await User.findOne({nombreDeUsuario: req.params.userNOMBREDEUSUARIO}).exec()
+    const user = await Usuario.findOne({Nombre: req.params.UsuarioNOMBRE}).exec()
     if (!user) {
       return res.status(404).send({ message: "Usuario no encontrado" })
     } 
-    if (username === user.nombreDeUsuario) {
+    if (username === usuario.Nombre) {
       console.log("paso if user")
-      if(password === user.password){
+      if(password === usuario.Contrasena){
         console.log('paso if passw')
-        datos.push(user._id, user.admin, user.nombreDeUsuario)
+        datos.push(usuario._id, usuario.admin, usuario.Nombre)
         console.log(username, password, datos)
         return res.status(200).json({ datos })
       } else {
