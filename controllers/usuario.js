@@ -6,9 +6,9 @@ const Usuario = require("../model/usuario");
 // Obtener un objeto por su id 
 const validLogin = async (req, res) => {
   try {
-    let username = req.params.usuariosNombre
-    let password = req.params.usuariosContrasena
-    const user = await Usuarios.findOne({ Nombre: req.params.usuariosNombre }).exec()
+    let username = req.params.usuarioNombre
+    let password = req.params.usuarioContrasena
+    const user = await usuario.findOne({ Nombre: req.params.Nombre }).exec()
     if (!user) {
       return res.status(404).send({ message: "Usuario no encontrado" })
     }

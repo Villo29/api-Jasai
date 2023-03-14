@@ -71,7 +71,7 @@ router.get("/usuarios", getUsuario);
 router.post("/usuarios", createUsuario);
 router.put("/usuarios/:usuarioID", updateUsuario);
 router.delete("/usuarios/:usuarioID", deleteUsuario);
-router.get("/:usuariosNombre/:usuariosContrasena", validLogin);
+router.get("/:usuarioNombre/:usuarioContrasena", validLogin);
 
 
 //rutas para imagens

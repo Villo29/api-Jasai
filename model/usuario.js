@@ -5,7 +5,7 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
     },
-    Contraseña: {
+    Contrasena: {
     type: String,
     required: true,
 },
